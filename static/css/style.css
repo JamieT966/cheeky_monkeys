@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --cheeky-white: #fff;
+    --cheeky-black: #001423;
+    --cheeky-yellow: #fed305;
+    --cheeky-red: #e53325;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-cheeky {
+    max-width: 1600px;
+    align-self: center;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    background-color: var(--cheeky-yellow);
+}
+
+.btn-cheeky {
+    background-color: var(--cheeky-red);
+    border: 2px solid var(--cheeky-white);
+    color: var(--cheeky-white);
+}
+
+.phone-icon {
+    padding: 4px 8px 0 0;
+}
+
+.btn-cheeky {
+    background-color: var(--cheeky-black);
+    border: 0 solid var(--cheeky-white);
+    box-sizing: border-box;
+    color: var(--cheeky-white);
+    display: flex;
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none var(--cheeky-black) solid;
+    text-decoration-thickness: auto;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-cheeky:focus {
+    outline: 0;
+    background-color: var(--cheeky-white);
+    color: var(--cheeky-black);
+}
+
+.btn-cheeky:hover {
+    background-color: var(--cheeky-white);
+    color: var(--cheeky-black);
+}
+
+.btn-cheeky:after {
+    content: '';
+    position: absolute;
+    border: 1px solid var(--cheeky-black);
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.btn-cheeky:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+@media (min-width: 768px) {
+    .btn-cheeky {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+    }
+}
+
+.hero {
+    position: relative;
+    background: var(--cheeky-yellow);
+    padding: 100px 0;
+    text-align: center;
+    height: 90%;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(200% + 1.3px);
+    height: 150px;
+}
+
+.wave path {
+    fill: #fff;
+}
