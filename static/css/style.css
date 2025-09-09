@@ -191,7 +191,7 @@ header {
 @media (max-width: 766px) {
     .what-we-do {
         text-align: center;
-        margin: 0 auto;
+        margin: 50px auto !important;
     }
 }
 
@@ -224,11 +224,18 @@ header {
 }
 
 .blob span {
-  position: relative;
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Poppins'
 }
 
 @media (max-width: 768px) {
-    .blob-text {
-    font-size: 12px;
+    .blob {
+        width: 100%;
+    }
+
+    .blob span {
+        font-size: 1.05rem !important;
     }
 }
