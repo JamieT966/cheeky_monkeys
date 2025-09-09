@@ -226,3 +226,9 @@ header {
 .blob span {
   position: relative;
 }
+
+@media (max-width: 768px) {
+    .blob-text {
+    font-size: 12px;
+    }
+}
