@@ -43,6 +43,12 @@ header {
     background-color: var(--cheeky-yellow);
 }
 
+@media (max-width: 768px) {
+    .logo-cheeky {
+        height: 120px !important;
+    }
+}
+
 .btn-cheeky {
     background-color: var(--cheeky-red);
     border: 2px solid var(--cheeky-white);
@@ -64,6 +70,7 @@ header {
     justify-content: center;
     line-height: 1.75rem;
     padding: .75rem 1.65rem;
+    margin-right: 5px;
     position: relative;
     text-align: center;
     text-decoration: none var(--cheeky-black) solid;
@@ -108,6 +115,7 @@ header {
     .btn-cheeky {
     padding: .75rem 3rem;
     font-size: 1.25rem;
+    margin-right: 20px;
     }
 }
 
@@ -116,7 +124,7 @@ header {
     background: var(--cheeky-yellow);
     padding: 100px 0;
     text-align: center;
-    height: 90%;
+    height: 75vh;
 }
 
 .wave {
@@ -131,8 +139,90 @@ header {
     display: block;
     width: calc(200% + 1.3px);
     height: 150px;
+    margin-bottom: -1px;
 }
 
 .wave path {
     fill: #fff;
+}
+
+.three-cols {
+    width: 95%;
+    margin:0 auto;
+    padding: 0 20px 0 20px;
+}
+
+.what-we-do {
+    background-color: var(--cheeky-black);
+    border: 0 solid var(--cheeky-white);
+    box-sizing: border-box;
+    color: var(--cheeky-white);
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    margin: 20px -25px 20px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none var(--cheeky-black) solid;
+    text-decoration-thickness: auto;
+    width: 90%;
+    max-width: 460px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.what-we-do:after {
+    content: '';
+    position: absolute;
+    border: 1px solid var(--cheeky-black);
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+@media (max-width: 766px) {
+    .what-we-do {
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+.wwd-element {
+    background-color: var(--cheeky-yellow);
+    border: 2px solid var(--cheeky-black);
+    border-radius: 50%;
+}
+
+.bloc-container {
+    width: 40%;
+    height: 40vh;
+    background: transparent;
+    overflow: hidden
+}
+
+.blob {
+    width: 90%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.blob svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.blob span {
+  position: relative;
 }
