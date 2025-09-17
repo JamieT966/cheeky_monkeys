@@ -123,7 +123,6 @@ header {
     position: relative;
     background: var(--cheeky-yellow);
     text-align: center;
-
 }
 
 .wave {
@@ -131,6 +130,7 @@ header {
     bottom: 0;
     left: 0;
     width: 100%;
+    transform: translateY(2px);
 }
 
 .wave svg {
