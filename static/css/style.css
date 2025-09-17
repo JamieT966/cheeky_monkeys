@@ -122,13 +122,12 @@ header {
 .hero {
     position: relative;
     background: var(--cheeky-yellow);
-    padding: 100px 0;
     text-align: center;
-    height: 75vh;
+
 }
 
 .wave {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -144,6 +143,11 @@ header {
 
 .wave path {
     fill: #fff;
+}
+
+.under-construction-text {
+    padding: 20px;
+    font-size: 1.2rem;
 }
 
 .three-cols {
