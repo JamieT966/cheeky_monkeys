@@ -145,9 +145,19 @@ header {
     fill: #fff;
 }
 
+.under-construction-container {
+    margin-top: -35px;
+}
+
 .under-construction-text {
     padding: 20px;
     font-size: 1.2rem;
+}
+
+@media (max-width: 766px) {
+    .under-construction-container {
+        margin-top: -5px;
+    }
 }
 
 .three-cols {
@@ -212,7 +222,7 @@ header {
     overflow: hidden
 }
 
-.blob {
+/* .blob {
     width: 90%;
     height: 200px;
     display: flex;
@@ -242,4 +252,4 @@ header {
     .blob span {
         font-size: 1.05rem !important;
     }
-}
+} */
