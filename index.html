@@ -85,13 +85,502 @@
                     </div>
                 </div>
             </section>
-<!-- 
-            <section class="container what-we-do-section">
+
+            <!-- <section class="container what-we-do-section">
                 <div class="what-we-do my-4 col-12">
                     What we learn at Cheeky Monkeys
                 </div>
             </section> -->
 
+            <section class="monkeys-carousel-section">
+
+                <!-- TOP WAVE -->
+                <div class="carousel-wave carousel-wave-top" aria-hidden="true">
+                    <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+                        <path d="
+                            M0,0
+                            H1440
+                            V55
+                            C1250,115 1100,105 930,70
+                            C740,30 610,110 420,82
+                            C250,57 130,25 0,78
+                            Z
+                        "></path>
+                    </svg>
+                </div>
+
+
+                <!-- CAROUSEL CONTENT -->
+                <div class="card-carousel-section">
+
+                    <div class="carousel-heading">
+                        <h2>What we learn at Cheeky Monkeys!</h2>
+                    </div>
+
+
+                    <div
+                        class="card-carousel"
+                        id="cardCarousel"
+                        tabindex="0"
+                        aria-label="Meet the Monkeys carousel"
+                    >
+
+                        <!-- PREVIOUS -->
+                        <button
+                            class="carousel-arrow carousel-arrow-left"
+                            type="button"
+                            aria-label="Previous card"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15 4L7 12L15 20"></path>
+                            </svg>
+                        </button>
+
+
+                        <div class="carousel-stage">
+
+                            <!-- CARD 1 -->
+                            <article class="carousel-card">
+                                <img
+                                    src="media/personal-social-emotional-development.png"
+                                    alt="Personal, Social and Emotional Development"
+                                >
+
+                                <div class="carousel-card-content">
+                                    <h3>Personal, Social and Emotional Development</h3>
+                                </div>
+                            </article>
+
+
+                            <!-- CARD 2 -->
+                            <article class="carousel-card">
+                                <img
+                                    src="media/understanding-world.png"
+                                    alt="Understanding and Appreciation of the World"
+                                >
+
+                                <div class="carousel-card-content">
+                                    <h3>Understanding and Appreciation of the World</h3>
+                                </div>
+                            </article>
+
+
+                            <!-- CARD 3 -->
+                            <article class="carousel-card">
+                                <img
+                                    src="media/language.png"
+                                    alt="Language"
+                                >
+
+                                <div class="carousel-card-content">
+                                    <h3>Language</h3>
+                                </div>
+                            </article>
+
+
+                            <!-- CARD 4 -->
+                            <article class="carousel-card">
+                                <img
+                                    src="media/physical-development.png"
+                                    alt="Physical Development"
+                                >
+
+                                <div class="carousel-card-content">
+                                    <h3>Physical Development</h3>
+                                </div>
+                            </article>
+
+
+                            <!-- CARD 5 -->
+                            <article class="carousel-card">
+                                <img
+                                    src="media/early-maths.png"
+                                    alt="Early Maths"
+                                >
+
+                                <div class="carousel-card-content">
+                                    <h3>Early Maths</h3>
+                                </div>
+                            </article>
+
+
+                            <!-- CARD 6 -->
+                            <article class="carousel-card">
+                                <img
+                                    src="media/creative.png"
+                                    alt="Creative Development"
+                                >
+
+                                <div class="carousel-card-content">
+                                    <h3>Creative Development</h3>
+                                </div>
+                            </article>
+
+                        </div>
+
+
+                        <!-- NEXT -->
+                        <button
+                            class="carousel-arrow carousel-arrow-right"
+                            type="button"
+                            aria-label="Next card"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 4L17 12L9 20"></path>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTTOM WAVE -->
+                <div class="carousel-wave carousel-wave-bottom" aria-hidden="true">
+                    <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+                        <path d="
+                            M0,85
+                            C170,30 315,45 480,75
+                            C680,112 800,38 1000,58
+                            C1170,74 1280,120 1440,80
+                            V140
+                            H0
+                            Z
+                        "></path>
+                    </svg>
+                </div>
+
+            </section>
         </div>
+
+        <script>
+            const carousel = document.getElementById("cardCarousel");
+            const stage = carousel.querySelector(".carousel-stage");
+
+            const cards = [
+                ...carousel.querySelectorAll(".carousel-card")
+            ];
+
+            const previousButton =
+                carousel.querySelector(".carousel-arrow-left");
+
+            const nextButton =
+                carousel.querySelector(".carousel-arrow-right");
+
+
+            /*
+                Starting card.
+
+                0 = Card 1
+                1 = Card 2
+                2 = Card 3
+                3 = Card 4
+                4 = Card 5
+                5 = Card 6
+
+                Because this is now genuinely circular,
+                Card 1 can safely start in the centre:
+                Card 6 will appear to its left and
+                Card 2 to its right.
+            */
+
+            let activeIndex = 0;
+
+
+            /*
+                Work out where a card sits relative
+                to the active card.
+
+                Example:
+
+                Card 6 | Card 1 | Card 2
+                -1       0        1
+            */
+
+            function getPosition(index) {
+
+                let difference = index - activeIndex;
+
+                const half = cards.length / 2;
+
+                if (difference > half) {
+                    difference -= cards.length;
+                }
+
+                if (difference < -half) {
+                    difference += cards.length;
+                }
+
+                return difference;
+            }
+
+
+            /*
+                Update the position of all six cards.
+            */
+
+            function updateCarousel() {
+
+                cards.forEach((card, index) => {
+
+                    const position = getPosition(index);
+
+                    card.dataset.position = position;
+
+                    card.setAttribute(
+                        "aria-hidden",
+                        Math.abs(position) > 1 ? "true" : "false"
+                    );
+
+                });
+
+            }
+
+
+            /*
+                NEXT
+            */
+
+            function nextCard() {
+
+                activeIndex =
+                    (activeIndex + 1) % cards.length;
+
+                updateCarousel();
+
+            }
+
+
+            /*
+                PREVIOUS
+            */
+
+            function previousCard() {
+
+                activeIndex =
+                    (activeIndex - 1 + cards.length)
+                    % cards.length;
+
+                updateCarousel();
+
+            }
+
+
+            /*
+                ARROW BUTTONS
+            */
+
+            nextButton.addEventListener(
+                "click",
+                nextCard
+            );
+
+
+            previousButton.addEventListener(
+                "click",
+                previousCard
+            );
+
+
+            /*
+                CLICK SIDE CARDS
+
+                Clicking the smaller right card brings
+                it forward.
+
+                Clicking the smaller left card brings
+                it forward.
+            */
+
+            cards.forEach((card, index) => {
+
+                card.addEventListener("click", () => {
+
+                    if (didSwipe) {
+                        return;
+                    }
+
+                    const position = getPosition(index);
+
+                    if (position === 1) {
+                        nextCard();
+                    }
+
+                    else if (position === -1) {
+                        previousCard();
+                    }
+
+                });
+
+            });
+
+
+            /*
+                SWIPE / DRAG
+            */
+
+            let pointerStartX = 0;
+            let pointerCurrentX = 0;
+
+            let pointerActive = false;
+
+            let didSwipe = false;
+
+
+            stage.addEventListener(
+                "pointerdown",
+                event => {
+
+                    pointerStartX = event.clientX;
+                    pointerCurrentX = event.clientX;
+
+                    pointerActive = true;
+
+                    didSwipe = false;
+
+                    if (stage.setPointerCapture) {
+                        stage.setPointerCapture(event.pointerId);
+                    }
+
+                }
+            );
+
+
+            stage.addEventListener(
+                "pointermove",
+                event => {
+
+                    if (!pointerActive) {
+                        return;
+                    }
+
+                    pointerCurrentX = event.clientX;
+
+                    const distance =
+                        Math.abs(pointerCurrentX - pointerStartX);
+
+                    if (distance > 10) {
+                        didSwipe = true;
+                    }
+
+                }
+            );
+
+
+            stage.addEventListener(
+                "pointerup",
+                event => {
+
+                    if (!pointerActive) {
+                        return;
+                    }
+
+                    const distance =
+                        pointerCurrentX - pointerStartX;
+
+                    const swipeThreshold = 45;
+
+
+                    /*
+                        Finger moves LEFT:
+                        go to next card.
+                    */
+
+                    if (distance < -swipeThreshold) {
+                        nextCard();
+                    }
+
+
+                    /*
+                        Finger moves RIGHT:
+                        go to previous card.
+                    */
+
+                    else if (distance > swipeThreshold) {
+                        previousCard();
+                    }
+
+
+                    pointerActive = false;
+
+
+                    if (stage.releasePointerCapture) {
+
+                        try {
+                            stage.releasePointerCapture(
+                                event.pointerId
+                            );
+                        }
+
+                        catch (error) {
+                            // Pointer capture may already be released.
+                        }
+
+                    }
+
+
+                    /*
+                        Delay resetting this so the click
+                        event generated after a swipe does
+                        not also advance another card.
+                    */
+
+                    setTimeout(() => {
+                        didSwipe = false;
+                    }, 50);
+
+                }
+            );
+
+
+            stage.addEventListener(
+                "pointercancel",
+                () => {
+
+                    pointerActive = false;
+
+                    didSwipe = false;
+
+                }
+            );
+
+
+            /*
+                KEYBOARD
+
+                Left / right arrow keys work when the
+                carousel has keyboard focus.
+            */
+
+            carousel.addEventListener(
+                "keydown",
+                event => {
+
+                    if (event.key === "ArrowRight") {
+
+                        event.preventDefault();
+
+                        nextCard();
+
+                    }
+
+                    else if (event.key === "ArrowLeft") {
+
+                        event.preventDefault();
+
+                        previousCard();
+
+                    }
+
+                }
+            );
+
+
+            /*
+                INITIALISE
+            */
+
+            updateCarousel();
+        </script>
     </body>
 </html>

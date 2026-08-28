@@ -253,3 +253,553 @@ header {
         font-size: 1.05rem !important;
     }
 } */
+
+/* =========================================
+   MEET THE MONKEYS CAROUSEL
+   ========================================= */
+
+.monkeys-carousel-section {
+    position: relative;
+    width: 100%;
+    background: var(--cheeky-yellow);
+    overflow: hidden;
+}
+
+
+/* =========================================
+   WAVES
+   ========================================= */
+
+.carousel-wave {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.carousel-wave svg {
+    display: block;
+    width: 100%;
+    height: 120px;
+}
+
+.carousel-wave path {
+    fill: var(--cheeky-white);
+}
+
+
+/* =========================================
+   SECTION CONTENT
+   ========================================= */
+
+.card-carousel-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 15px 0 45px;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+.carousel-heading {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 25px;
+}
+
+
+.carousel-heading h2 {
+    margin: 0 0 6px;
+    color: var(--cheeky-black);
+    font-weight: 600;
+}
+
+
+.carousel-heading p {
+    margin: 0;
+
+    color: var(--cheeky-black);
+
+    font-size: 1.05rem;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   CAROUSEL
+   ========================================= */
+
+.card-carousel {
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    outline: none;
+}
+
+
+.carousel-stage {
+    position: relative;
+
+    width: 100%;
+    height: 510px;
+
+    perspective: 1200px;
+
+    touch-action: pan-y;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* =========================================
+   CARDS
+   ========================================= */
+
+.carousel-card {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: min(72vw, 330px);
+    height: 460px;
+
+    overflow: hidden;
+
+    border: 2px solid rgba(0, 20, 35, 0.25);
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transform-origin: center center;
+
+    transition:
+        transform 0.55s cubic-bezier(.22, .61, .36, 1),
+        opacity 0.45s ease,
+        filter 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease;
+
+    will-change: transform;
+
+    cursor: pointer;
+}
+
+
+/* CARD IMAGE */
+
+.carousel-card > img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+}
+
+
+/* DARK IMAGE GRADIENT */
+
+.carousel-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 20, 35, 0.94) 0%,
+            rgba(0, 20, 35, 0.58) 30%,
+            rgba(0, 20, 35, 0.12) 62%,
+            rgba(0, 20, 35, 0.02) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* CARD TEXT */
+
+.carousel-card-content {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    padding: 26px;
+
+    color: var(--cheeky-white);
+}
+
+
+.carousel-card-content h3 {
+    margin: 0 0 7px;
+
+    color: var(--cheeky-white);
+
+    font-size: 1.55rem;
+    font-weight: 600;
+}
+
+
+.carousel-card-content p {
+    margin: 0;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   ACTIVE CARD
+   ========================================= */
+
+.carousel-card[data-position="0"] {
+    z-index: 10;
+
+    opacity: 1;
+
+    filter: brightness(1);
+
+    border-color: var(--cheeky-black);
+
+    transform:
+        translate(-50%, -50%)
+        translateX(0)
+        scale(1);
+}
+
+
+/* =========================================
+   CARD TO LEFT
+   ========================================= */
+
+.carousel-card[data-position="-1"] {
+    z-index: 5;
+
+    opacity: 0.78;
+
+    filter: brightness(0.76);
+
+    border-color: rgba(0, 20, 35, 0.35);
+
+    transform:
+        translate(-50%, -50%)
+        translateX(-72%)
+        scale(0.78);
+}
+
+
+/* =========================================
+   CARD TO RIGHT
+   ========================================= */
+
+.carousel-card[data-position="1"] {
+    z-index: 5;
+
+    opacity: 0.78;
+
+    filter: brightness(0.76);
+
+    border-color: rgba(0, 20, 35, 0.35);
+
+    transform:
+        translate(-50%, -50%)
+        translateX(72%)
+        scale(0.78);
+}
+
+
+/* =========================================
+   HIDDEN BACK CARDS
+   ========================================= */
+
+.carousel-card[data-position="-2"] {
+    z-index: 2;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%)
+        translateX(-105%)
+        scale(0.65);
+}
+
+
+.carousel-card[data-position="2"] {
+    z-index: 2;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%)
+        translateX(105%)
+        scale(0.65);
+}
+
+
+.carousel-card[data-position="-3"],
+.carousel-card[data-position="3"] {
+    z-index: 1;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.55);
+}
+
+
+/* =========================================
+   CAROUSEL ARROWS
+   ========================================= */
+
+.carousel-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 30;
+
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 2px solid var(--cheeky-yellow);
+    border-radius: 50%;
+
+    background: var(--cheeky-black);
+    color: var(--cheeky-yellow);
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.carousel-arrow svg {
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    pointer-events: none;
+}
+
+
+.carousel-arrow-left {
+    left: 30px;
+}
+
+
+.carousel-arrow-right {
+    right: 30px;
+}
+
+
+.carousel-arrow:hover {
+    background: var(--cheeky-yellow);
+    color: var(--cheeky-black);
+
+    border-color: var(--cheeky-black);
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+.carousel-arrow:active {
+    transform:
+        translateY(-50%)
+        scale(0.95);
+}
+
+
+.carousel-arrow:focus-visible {
+    outline: 3px solid var(--cheeky-white);
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .carousel-arrow-left {
+        left: 15px;
+    }
+
+    .carousel-arrow-right {
+        right: 15px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767px) {
+
+    .carousel-wave svg {
+        height: 75px;
+    }
+
+
+    .card-carousel-section {
+        padding: 10px 0 30px;
+    }
+
+
+    .carousel-heading {
+        margin-bottom: 15px;
+    }
+
+
+    .carousel-heading h2 {
+        font-size: 2rem;
+    }
+
+
+    .carousel-heading p {
+        font-size: 0.95rem;
+    }
+
+
+    .carousel-stage {
+        height: 455px;
+    }
+
+
+    .carousel-card {
+        width: 72vw;
+        max-width: 300px;
+
+        height: 420px;
+
+        border-radius: 24px;
+    }
+
+
+    .carousel-card-content {
+        padding: 22px;
+    }
+
+
+    .carousel-card-content h3 {
+        font-size: 1.4rem;
+    }
+
+
+    /*
+       More of the neighbouring cards is visible
+       on smaller screens.
+    */
+
+    .carousel-card[data-position="-1"] {
+        transform:
+            translate(-50%, -50%)
+            translateX(-72%)
+            scale(0.76);
+    }
+
+
+    .carousel-card[data-position="1"] {
+        transform:
+            translate(-50%, -50%)
+            translateX(72%)
+            scale(0.76);
+    }
+
+
+    /*
+       Swiping is the main control on phones.
+    */
+
+    .carousel-arrow {
+        display: none;
+    }
+
+}
+
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 380px) {
+
+    .carousel-card {
+        width: 74vw;
+        height: 400px;
+    }
+
+
+    .carousel-stage {
+        height: 430px;
+    }
+
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .carousel-card,
+    .carousel-arrow {
+        transition: none;
+    }
+
+}
