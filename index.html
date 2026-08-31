@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <title>Cheeky Monkeys Playschool</title>
-  <link rel="icon" type="media/x-icon" href="/media/favicon.ico">
+    <link rel="icon" type="media/x-icon" href="/media/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -11,6 +14,16 @@
   </head>
     <body>
         <div class="container-cheeky">
+            <div class="hero-art" aria-hidden="true">
+                <img
+                    src="media/hero-vine.png"
+                    class="hero-art-vine"
+                    alt="">
+                    <img
+                    src="media/hanging-monkey.png"
+                    class="hero-art-monkey"
+                    alt="">
+            </div>
             <header class="site-header">
                 <div class="site-inner header-inner">
 
@@ -23,13 +36,13 @@
                     </a>
 
                     <nav>
-                        <a
+                        <div
                             href="tel:0872891762"
                             class="btn-cheeky"
                         >
                             <i class="fas fa-phone-alt phone-icon"></i>
                             087 289 1762
-                        </a>
+                    </div>
                     </nav>
 
                 </div>
@@ -38,28 +51,32 @@
 
             <!-- Hero Section -->
             <section class="hero">
-                <div class="container">
-                    <!-- <h1>Website Under Construction</h1>
-                    <img class="under-construction" src="media/cheeky_monkey_under_construction.webp" alt="Monkey holding wrench under Construction">
-                    <div class="btn-container justify-content-center d-flex">
-                        <a href="tel:0861234567" class="btn btn-primary btn-cheeky">
-                            <i class="fas fa-phone-alt phone-icon"></i> 086 123 4567
-                        </a>
-                    </div> -->
-
+                <div class="site-inner">
                     <div class="row align-items-center under-construction-container">
                         <!-- Left column: text -->
-                        <div class="col-md-6">
-                        <h2>Under Construction</h2>
-                        <p class="under-construction-text">
-                            This website is currently under constuction. <br>
-                            Please call or text 087 289 1762 to contact Cheeky Monkeys.
-                        </p>
+                        <div class="col-md-6 hero-text-section">
+                        <h1 class="hero-title">
+                            Our Ethos
+                        </h1>
+
+                        <div class="under-construction-text">
+                            <p>
+                                To build on each child’s strengths, interests and abilities.
+                            </p>
+
+                            <p>
+                                To develop self-confidence, initiative and creativity.
+                            </p>
+
+                            <p>
+                                To enable the children to play, talk, learn and have fun together.
+                            </p>
                         </div>
 
+                        </div>
                         <!-- Right column: image -->
                         <div class="col-md-6 text-center">
-                        <img src="media/cheeky_monkey_under_construction.webp" class="img-fluid" alt="under Construction monkey">
+
                         </div>
                     </div>
                 </div>
@@ -72,17 +89,29 @@
                 </div>
             </section>
 
-            <section>
+            <section class="trust-section">
+                <div class="trust-heading">
+                    <h2 class="carousel-heading-cheeky">
+                        Why Choose Cheeky Monkeys?
+                    </h2>
+                </div>
                 <div class="row text-center my-4 three-cols">
+                    <!-- Wink monkey -->
+                    <img
+                        src="media/wink-monkey-right.png"
+                        class="wink-monkey"
+                        alt="winking monkey"
+                        aria-hidden="true"
+                    >
                     <!-- Column 1 -->
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-3 mb-4 trust-item">
                     <img src="media/g-vet-yellow.webp" class="img-fluid rounded mb-3" alt="Image 1">
                     <h5>Garda Vetted</h5>
                     <p class="text-muted">All of the Cheeky Monkeys staff members are Garda vetted.</p>
                     </div>
 
                     <!-- Column 2 -->
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-3 mb-4 trust-item">
                     <img src="media/ecce-yellow.webp" class="img-fluid rounded mb-3" alt="Image 2">
                     <h5>ECCE Scheme</h5>
                     <p class="text-muted">We are very happy to announce that we are 
@@ -90,19 +119,13 @@
                     </div>
 
                     <!-- Column 3 -->
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-3 mb-4 trust-item">
                     <img src="media/15-year-yellow.webp" class="img-fluid rounded mb-3" alt="Image 3">
                     <h5>15 Years in Business</h5>
                     <p class="text-muted">Cheeky Monkeys Playschool have been in business for 15 years.</p>
                     </div>
                 </div>
             </section>
-
-            <!-- <section class="container what-we-do-section">
-                <div class="what-we-do my-4 col-12">
-                    What we learn at Cheeky Monkeys
-                </div>
-            </section> -->
 
             <section class="monkeys-carousel-section">
 
